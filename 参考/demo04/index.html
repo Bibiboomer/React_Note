@@ -8,14 +8,30 @@
   <body>
     <div id="example"></div>
     <script type="text/babel">
+//    组件：将代码封装成组件 →  成为普通 HTML 标签 ，在网页中插入
+//    React.cretecClass 方法  用于生成组件  类
+
       var HelloMessage = React.createClass({
+//        HelloMessage 一个组件类，{
+//                首字母大写
+//                只能包含一个顶层标签
+//                与 HTML 标签一样 可加入属性
+//      }
+
+//        模板插入组件中，自动生成组件的 一个实例
+//        所有的组件类都必须有自己的render 方法 ，用于输出组件
         render: function() {
-          return <h1>Hello {this.props.name}</h1>;
+            return <h1>Hello {this.props.name}</h1>;
+//          {
+//                只能包含一个顶层标签
+//                与 HTML 标签一样 可加入属性
+//           }
         }
       });
 
       ReactDOM.render(
-        <HelloMessage name="John" />,
+//        在 组件 加入一个name 属性 ，值为 JO
+        <Hellessage name="John" />,
         document.getElementById('example')
       );
     </script>

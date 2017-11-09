@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+//      组件：将代码封装成组件 →  成为普通 HTML 标签 ，在网页中插入
+//      React.cretecClass 方法  用于生成组件  类
+
+
+            var HelloReact = React.createClass({
+//          HelloMessage 一个组件类，{
+//                首字母大写
+//      }
+
+
+//          模板插入组件中，自动生成组件的 一个实例
+//          所有的组件类都必须有自己的render 方法 ，用于输出组件
+            render : function () {
+            return <h1>
+                    hello {this.props.name}
+                </h1>
+//                <p> some text</p>;
+            }
+//          {
+//                只能包含一个顶层标签
+//                与 HTML 标签一样 可加入属性
+//                class 属性需要写成 className ，
+//                for 属性需要写成 htmlFor ，
+//                 因为 class 和 for 是 JavaScript 的保留字。
+//           }
+        });
+        ReactDOM.render(
+                <HelloReact name="React" />,
+
+//          {
+//                与 HTML 标签一样 可加入属性 值为 React
+//                组件的属性可以在组件类的 this.props对象上获取
+//           }
+            document.getElementById("app")
+        );
+
+    </script>
+</body>
+</html>
