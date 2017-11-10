@@ -15,6 +15,7 @@
                 return (
                         <ol>
                             {
+                                //使用 React.Children 方法 处理this.props.children  排除了this.props.children的数据类型
                                 React.Children.map(this.props.children ,function(child) {
                                     return <li>{ child } </li>;
                                 })
@@ -25,6 +26,7 @@
         });
 
 
+
         ReactDOM.render(
             <NotesList>
                 <span>Hello</span>
@@ -32,6 +34,8 @@
             </NotesList>,
             document.getElementById('app')
         );
+//          在实例换的时候 ： 获取组件的属性 通过 this.props 对象      组件的子节点 ： this.props.children
+//          在 渲染 ： 模板转化为HTML 时 , 可以设置组件的属性          组件的子节点无需设置
     </script>
 </body>
 </html>

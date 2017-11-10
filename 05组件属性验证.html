@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+
+
+        <Col sm={4} className="business-parent">
+            <Col className="business-section">
+                <p className="title">时间戳</p>
+                <img src="../images/timestamp.png"/>
+                <Col sm={12} className="c-cost">
+                    <Col sm={6} className="c-total">
+                        <span>消费总额</span>
+                        <br/>
+                        <span>
+                                &#65509;{Math.formatMoney(timestamp.total)}
+                            </span>
+                    </Col>
+                    <Col sm={6} className="c-discount">
+                        <span>优惠券抵扣</span>
+                        <br/>
+                        <span>
+                                &#65509;{timestamp.discount ? Math.formatMoney(timestamp.discount) : "0"}
+                            </span>
+                    </Col>
+                </Col>
+                <Col sm={12} className="c-paid">
+                    <span>实际消费</span>
+                    <br/>
+                    <span className="color-red">&#65509;
+                        <span className="balance-num">
+                                    {timestamp.paid ? Math.formatMoney(timestamp.paid) : "0"}
+                                </span>
+                            </span>
+                </Col>
+                <button onClick={(serviceType, yearMonth) => this.billDetail('TIMESTAMP', this.state.yearMonth)}>消费明细</button>
+            </Col>
+        </Col>
+
+
+        <BillTemplate datas={signBill}/>
+
+        {/*时间戳*/}
+        <BillTemplate datas={timestampBill}/>
+
+        {/*实名认证服务*/}
+        <BillTemplate datas={realnameBill}/>
+
+        {/*出证服务*/}
+        <BillTemplate datas={issuecertBill}/>
+
+        {/*保全服务*/}
+        <BillTemplate datas={saveBill}/>
+
+        {/*摘要存证*/}
+        <BillTemplate datas={conserveBill}/>
+
+
+        {/*短信服务*/}
+        <BillTemplate datas={willBill}/>
+        var MyTitle = React.createClass({
+
+//          propTypes验证：组件的属相必须满足的条件
+            propTypes :{
+                title: React.PropTypes.string.isRequired,
+            },
+//          设置组件属相的默认值
+            getDefaultProps : function () {
+                return {
+                    name : " hello React"
+                };
+            },
+
+//          h2不能包含h1标签 ，所以加上一个 div标签
+            render : function () {
+                return<div>
+                    <h1>{this.props.title}
+                        <div>
+                            <h2>{this.props.name}</h2>
+                        </div>
+                    </h1>
+                    <HelloMessage head="我是标题" content="我是内容" />
+                    <HelloMessage> </HelloMessage>
+                </div>;
+
+
+            }
+        });
+
+
+        //  子组件 ： 全局定义 或者是在 父组件内定义均可
+        //  子组件里有很多值，
+        // 在这里加上组件模板
+        var HelloMessage = React.createClass({
+
+            render: function() {
+                return<div>
+                    <h1>标题： {this.props.head}</h1>
+                    <h2>内容 ：{this.props.content} </h2>
+                </div>;
+            }
+        });
+
+        var data = "123";
+        var name = "React";
+
+        ReactDOM.render(
+            <MyTitle title = {data}  />,
+            document.getElementById('app')
+        );
+
+    </script>
+</body>
+</html>
