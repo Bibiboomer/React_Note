@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="build/browser.min.js"></script>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/babel">
+    //组件并不是真正的DOM节点，而是存在于内存之中的一种数据结构——虚拟DOM
+    // 只有在它插入真正的文档之后，才会变成真正的DOM。根据React的设计，所有的DOM变动，都先在虚拟DOM上发生，然后再讲
+    // 实际发生变动的部分，反映在真实DOM上——————可提高网页的性能表现
+
+
+    // 但是 ，当需要从组建获取真实 DOM 的节点，需要用到 ref 属性
+    // 存在疑惑： 如何实现 拿不到 用户输入的情况
+
+	var MyComponent = React.createClass({
+		handleClick: function() {
+			this.refs.myTextInput.focus();
+		},
+		render: function() {
+			return (
+                    <div>
+                        <input type="text" ref="myTextInput" />
+                        <input type="button" value="Focus the text input" onClick={this.handleClick} />
+                    </div>
+			);
+		}
+	});
+	ReactDOM.render(
+            <MyComponent />,
+		document.getElementById('app')
+	);
+
+</script>
+</body>
+</html>

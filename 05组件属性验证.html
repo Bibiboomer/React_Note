@@ -11,61 +11,6 @@
     <div id="app"></div>
     <script type="text/babel">
 
-
-        <Col sm={4} className="business-parent">
-            <Col className="business-section">
-                <p className="title">时间戳</p>
-                <img src="../images/timestamp.png"/>
-                <Col sm={12} className="c-cost">
-                    <Col sm={6} className="c-total">
-                        <span>消费总额</span>
-                        <br/>
-                        <span>
-                                &#65509;{Math.formatMoney(timestamp.total)}
-                            </span>
-                    </Col>
-                    <Col sm={6} className="c-discount">
-                        <span>优惠券抵扣</span>
-                        <br/>
-                        <span>
-                                &#65509;{timestamp.discount ? Math.formatMoney(timestamp.discount) : "0"}
-                            </span>
-                    </Col>
-                </Col>
-                <Col sm={12} className="c-paid">
-                    <span>实际消费</span>
-                    <br/>
-                    <span className="color-red">&#65509;
-                        <span className="balance-num">
-                                    {timestamp.paid ? Math.formatMoney(timestamp.paid) : "0"}
-                                </span>
-                            </span>
-                </Col>
-                <button onClick={(serviceType, yearMonth) => this.billDetail('TIMESTAMP', this.state.yearMonth)}>消费明细</button>
-            </Col>
-        </Col>
-
-
-        <BillTemplate datas={signBill}/>
-
-        {/*时间戳*/}
-        <BillTemplate datas={timestampBill}/>
-
-        {/*实名认证服务*/}
-        <BillTemplate datas={realnameBill}/>
-
-        {/*出证服务*/}
-        <BillTemplate datas={issuecertBill}/>
-
-        {/*保全服务*/}
-        <BillTemplate datas={saveBill}/>
-
-        {/*摘要存证*/}
-        <BillTemplate datas={conserveBill}/>
-
-
-        {/*短信服务*/}
-        <BillTemplate datas={willBill}/>
         var MyTitle = React.createClass({
 
 //          propTypes验证：组件的属相必须满足的条件
@@ -87,8 +32,8 @@
                             <h2>{this.props.name}</h2>
                         </div>
                     </h1>
-                    <HelloMessage head="我是标题" content="我是内容" />
-                    <HelloMessage> </HelloMessage>
+                    <HelloMessage head="我是标题1" content="我是内容1" />
+                    <HelloMessage head="我是标题2" content="我是内容2"> </HelloMessage>
                 </div>;
 
 
